@@ -1,6 +1,12 @@
 # bottom_navigation_bar_sample
 
-A new Flutter project.
+## Bottom Navigation Bar Tutorial
+
+https://medium.com/@jb.padamchopra/implementing-a-bottom-app-bar-with-floating-action-button-flutter-463560e1324
+
+## Float Modal Sample
+
+https://pub.dev/packages/modal_bottom_sheet
 
 ## Getting Started
 

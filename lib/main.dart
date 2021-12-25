@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:bottom_navigation_bar_sample/ui/modal/floating_modal.dart';
+import 'package:bottom_navigation_bar_sample/ui/modal/modal_fit.dart';
 
 void main() {
   runApp(const App());
@@ -79,10 +81,14 @@ class HomeState extends State<Home> {
           .centerDocked, //specify the location of the FAB
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            clickedCentreFAB =
-                !clickedCentreFAB; //to update the animated container
-          });
+          // setState(() {
+          //   clickedCentreFAB =
+          //       !clickedCentreFAB; //to update the animated container
+          // });
+          showFloatingModalBottomSheet(
+            context: context,
+            builder: (context) => const ModalFit(),
+          );
         },
         tooltip: "Centre FAB",
         child: Container(
@@ -96,7 +102,7 @@ class HomeState extends State<Home> {
           margin: const EdgeInsets.only(left: 12.0, right: 12.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               IconButton(
                 //update the bottom app bar view each time an item is clicked
@@ -112,33 +118,9 @@ class HomeState extends State<Home> {
                       : Colors.grey.shade400,
                 ),
               ),
-              IconButton(
-                onPressed: () {
-                  updateTabSelection(1, "Outgoing");
-                },
-                iconSize: 27.0,
-                icon: Icon(
-                  Icons.call_made,
-                  color: selectedIndex == 1
-                      ? Colors.blue.shade900
-                      : Colors.grey.shade400,
-                ),
-              ),
               //to leave space in between the bottom app bar items and below the FAB
               const SizedBox(
                 width: 50.0,
-              ),
-              IconButton(
-                onPressed: () {
-                  updateTabSelection(2, "Incoming");
-                },
-                iconSize: 27.0,
-                icon: Icon(
-                  Icons.call_received,
-                  color: selectedIndex == 2
-                      ? Colors.blue.shade900
-                      : Colors.grey.shade400,
-                ),
               ),
               IconButton(
                 onPressed: () {
